@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
         @transaction = Transaction.new(params[:transaction])
         
         @transaction.sender_account_id = current_user.account.id
-        @transaction.save!
+        
 
         @account = Account.where(:id => @transaction.sender_account_id)
 
@@ -24,6 +24,8 @@ class TransactionsController < ApplicationController
           t.amount = t.amount + @transaction.amount
           t.save!
         end
+
+        @transaction.save!
 
         redirect_to accounts_show_url, :notice => "Het geld is overgeboekt!"
 
