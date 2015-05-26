@@ -1,0 +1,14 @@
+<%= link_to "Nieuwe transactie", transactions_new_path %>
+
+<h1>Uw bankrekening</h1>
+
+<%= current_user.email %><br>
+
+<% @account.each do |t| %>
+  Bankrekeningnr: <%= t.id %><br>
+  Saldo: <%= t.amount %>
+<% end %>
+
+<br><br>
+
+<h2>Laatste transacties:</h2>
