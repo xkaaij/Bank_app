@@ -3,4 +3,6 @@ class Account < ActiveRecord::Base
 
   has_one :user
   has_many :transactions
+
+  validates :amount, :numericality => { :greater_than_or_equal_to => 0 }
 end
