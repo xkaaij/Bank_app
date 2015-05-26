@@ -13,5 +13,6 @@ Bankapp::Application.routes.draw do
   resources :users
   resources :sessions
   resources :accounts
+  resources :transactions
 
 end

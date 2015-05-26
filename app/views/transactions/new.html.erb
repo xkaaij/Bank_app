@@ -1,27 +1,17 @@
 <h1>Nieuwe overschrijving</h1>
 
 <%= form_for @transaction do |f| %>
-  <% if @transaction.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @transaction.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <p>
     <%= f.label :bankrekeningnr %><br />
     <%= f.text_field :receiver_account_id %>
   </p>
   <p>
     <%= f.label :bedrag %><br />
-    <%= f.password_field :amount %>
+    <%= f.text_field :amount %>
   </p>
   <p>
     <%= f.label :beschrijving %><br />
-    <%= f.password_field :description %>
+    <%= f.text_field :description %>
   </p>
   <p class="button"><%= f.submit %></p>
 <% end %>

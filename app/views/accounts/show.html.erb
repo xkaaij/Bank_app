@@ -12,3 +12,13 @@
 <br><br>
 
 <h2>Laatste transacties:</h2>
+
+<% @transaction.each do |t| %>
+  <% if t.sender_account_id == current_user.account.id %>
+    Overgemaakt: <%= t.amount %>
+  <% else %>
+    Ontvangen: <%= t.amount %>
+  <% end %>
+  Beschrijving: <%= t.description %>
+  <br>
+<% end %>
