@@ -14,18 +14,18 @@
 ActiveRecord::Schema.define(:version => 20150526104718) do
 
   create_table "accounts", :force => true do |t|
-    t.float    "amount"
+    t.decimal  "amount",     :precision => 8, :scale => 2
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "transactions", :force => true do |t|
-    t.float    "amount"
+    t.decimal  "amount",              :precision => 8, :scale => 2
     t.integer  "sender_account_id"
     t.integer  "receiver_account_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
     t.string   "description"
   end
 
