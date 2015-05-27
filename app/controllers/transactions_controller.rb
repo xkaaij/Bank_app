@@ -11,19 +11,15 @@ class TransactionsController < ApplicationController
         @transaction.sender_account_id = current_user.account.id
         
 
-        @account = Account.where(:id => @transaction.sender_account_id)
+        @account = Account.where(:id => @transaction.sender_account_id).first
 
-        @account.each do |t|
-          t.amount = t.amount - @transaction.amount
-          t.save!
-        end
+        @account.amount = @account.amount - @transaction.amount
+        @account.save!
 
-        @account = Account.where(:id => @transaction.receiver_account_id)
+        @account = Account.where(:id => @transaction.receiver_account_id).first
 
-        @account.each do |t|
-          t.amount = t.amount + @transaction.amount
-          t.save!
-        end
+        @account.amount = @account.amount - @transaction.amount
+        @account.save!
 
         @transaction.save!
 
