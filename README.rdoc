@@ -1,3 +1,13 @@
 The app let's you create users, which will get an automaic bankaccount assigned to them. After this users can deposit amounts of cash to the other one's accountno. 
 
 All transactions are saved and shown on the user's account page. Transactions are not possible if a user gets in the red numbers.
+
+Getting started:
+
+bundle install
+
+rake db:migrate
+
+rails s
+
+
