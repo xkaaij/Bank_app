@@ -10,8 +10,9 @@ class TransactionsController < ApplicationController
         
         @transaction.sender_account_id = current_user.account.id
         
-
         @account = Account.find (@transaction.sender_account_id)
+
+        @transaction.save!
 
         @account.amount = @account.amount - @transaction.amount
         @account.save!
@@ -21,12 +22,10 @@ class TransactionsController < ApplicationController
         @account.amount = @account.amount + @transaction.amount
         @account.save!
 
-        @transaction.save!
-
         redirect_to accounts_show_url, :notice => "Het geld is overgeboekt!"
     end
     rescue ActiveRecord::RecordInvalid => e
-      redirect_to accounts_show_url, :notice => "U staat in het rood!"
+      redirect_to accounts_show_url, :notice => "Er is iets misgegaan bij de transactie!"
     end
 
   end

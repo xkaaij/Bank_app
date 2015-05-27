@@ -4,4 +4,6 @@ class Transaction < ActiveRecord::Base
   has_many :accounts
 
   validates :amount, :numericality => { :greater_than_or_equal_to => 0 }
+  validates_presence_of :receiver_account_id, :message => "Er is geen banknummer ingevuld."
+
 end
