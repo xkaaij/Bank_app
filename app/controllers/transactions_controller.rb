@@ -26,7 +26,7 @@ class TransactionsController < ApplicationController
         redirect_to accounts_show_url, :notice => "Het geld is overgeboekt!"
     end
     rescue ActiveRecord::RecordInvalid => e
-        redirect_to accounts_show_url, :notice => "U staat in het rood!"
+      redirect_to accounts_show_url, :notice => "U staat in het rood!"
     end
 
   end
